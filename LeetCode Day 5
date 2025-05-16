@@ -1,0 +1,24 @@
+# Write your MySQL query statement below
+-- select d.name,e.name,rank(e.salary) over(group by d.name order by e.salary desc) from employee e join department d on 
+-- e.departmentid = d.id;
+-- select * from department;
+
+-- select (select d.name,e.name,e.salary from employee e join department d on e.departmentid = d.id) as a from Employee;
+
+-- select d.name,e.name,e.salary from employee e join department d on e.departmentid = d.id
+-- group by departmentid order by salary desc; 
+
+-- select distinct(salary) from employee group by departmentid order by salary
+
+-- select department.name,employee.name,employee.salary from employee join department on employee.departmentid = department.id order by salary desc;
+
+-- select d.name as Department,e1.name as Employee,e1.salary as Salary from employee e1 join department d on e1.departmentid = d.id
+-- where e1.name in ('Joe','Henry','Sam','Max','Randy','Will') or Salary = 0
+
+
+Select d.name as department , e1.name as employee, e1.salary as Salary
+From Employee e1 join Department d on e1.DepartmentId = d.Id
+Where  3 > (select count(distinct (e2.Salary))
+            from  Employee e2
+            where e2.Salary > e1.Salary
+            and e1.DepartmentId = e2.DepartmentId)
