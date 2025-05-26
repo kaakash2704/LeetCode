@@ -1,0 +1,20 @@
+class Solution(object):
+    def palindromePairs(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[List[int]]
+        """
+        def palindrome(a):
+            temp = a
+            a = a[::-1]
+            if a == temp:
+                return True
+
+        lst = []
+        com = []
+        for i in range (len(words)):
+            for j in range (len(words)):
+                if i != j:
+                    if palindrome(words[i]+words[j]):
+                        lst.append([i,j])
+        return lst
