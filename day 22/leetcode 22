@@ -1,0 +1,19 @@
+class Solution(object):
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
+        lst = []
+        for i in nums:
+            if i != 0:
+                lst.append(i)
+        for j in nums:
+            if j == 0:
+                lst.append(j)
+        print(lst)
+        
+        for k in range (len(lst)):
+            nums[k] = lst[k]
+
+        return nums
