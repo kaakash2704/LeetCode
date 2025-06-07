@@ -1,0 +1,16 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        lst = nums
+        st = set(lst)
+        lst = list(st)
+        lst.sort()
+        k= len(lst)
+        for i in range (len(lst)):
+            nums[i] = lst[i]
+        print(nums)
+        return k
+            
