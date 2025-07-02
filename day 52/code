@@ -1,0 +1,12 @@
+class Solution(object):
+    def removeDuplicateLetters(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        res,last,seen = [], {c:i for i,c in enumerate(s)},set()
+        for i,c in enumerate(s):
+            if c in seen:continue
+            while res and c<res[-1] and i<last[res[-1]]:seen.remove(res.pop())
+            res+=c;seen.add(c)
+        return ''.join(res)
