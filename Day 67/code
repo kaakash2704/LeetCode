@@ -1,0 +1,5 @@
+import collections
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        c = collections.Counter(nums)
+        return max((v + c.get(k + 1, -v) for k, v in c.items()), default=0)
